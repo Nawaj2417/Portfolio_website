@@ -1,0 +1,467 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>samir rain</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="{%static 'style/style.css' %}">
+    <link rel="stylesheet" href="{%static 'style/responsive.css' %}">
+</head>
+
+<body>
+    <a href="#headersection" class="icons-top">
+       
+            <i class="fa-solid fa-arrow-up"></i>
+     
+      </a>
+    <main>
+
+
+        <div class="myresumebox">
+            <div class="buttonswork">
+                <a href="myResume/Blue Simple Professional CV Resume.pdf" download="">
+                    <button>Download myResume</button>
+                </a>
+
+                <button class="closepfd"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <iframe width="750px" height="770px" id="myresumeid" src="myResume/Blue Simple Professional CV Resume.pdf" frameborder="0"></iframe>
+         
+        </div>
+    
+        <header id="headersection">
+            <div class="logo">
+                <h1>Brokly Master</h1>
+            </div>
+            <nav class="nav">
+                <i class="fa-solid fa-arrow-right close-navbar"></i>
+                <ul class="nav-menu">
+                    <li class="nav-list">
+                        <a href="#aboutsection" class="nav-link">about </a>
+                    </li>
+               
+                    <li class="nav-list">
+                        <a href="#myprojects" class="nav-link">projects </a>
+                    </li>
+                    <li class="nav-list">
+                        <a href="#skillsection" class="nav-link">myskills </a>
+                    </li>
+                    <li class="nav-list">
+                        <a href="#servicesection" class="nav-link">service </a>
+                    </li>
+                    <li class="nav-list">
+                        <a href="#contactsection" class="nav-link">contact </a>
+                    </li>
+                </ul>
+
+                <div class="dark-light-mode nav-dark-light-mode">
+
+                    <i class="fa-regular fa-moon lightmodes"></i>
+                    <i class="fa-regular fa-sun darkmodes"></i>
+                </div>
+            </nav>
+            <div class="signup-btn">
+                <!-- <button>signup</button> -->
+                <div class="hamburger">
+                    <i class="fa-solid fa-sliders"></i>
+                </div>
+                <div class="dark-light-mode">
+                    <i class="fa-regular fa-moon lightmodes big-screen"></i>
+                    <i class="fa-regular fa-sun darkmodes big-screen"></i>
+                </div>
+            </div>
+        </header>
+        <section class="hero-section" id="herosection">
+            <div class="left">
+                <div class="left-text">
+                    <h2>let's work <br> together to create wonders with us</h2>
+                </div>
+                <div class="boxesss">
+                    <div class="left-para">
+                        <p> A visionary creatice, crafting captivationg wonders through aret and design . Adept at
+                            turning imagination into extraordinary reality</p>
+                    </div>
+
+                    <div class="btn-box">
+                        <button>let's talk</button>
+                        <button id="myresumeopen">my Resume</button>
+                    </div>
+                    {% for about in about %}
+                    <div class="total-static">
+                        <div class="t-st">
+                            <h3>{{about.experience}}</h3>
+                            <p>years experience</p>
+                        </div>
+                        <div class="t-st">
+                            <h3>{{about.project_success}}</h3>
+                            <p>project success</p>
+                        </div>
+                        <div class="t-st">
+                            <h3>{{about.rate}}</h3>
+                            <p>satisfied rate</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="right">
+                {% for about in about %}
+                <div class="image-box">
+                    <img src="{{about.image.url}}" alt="">
+                </div>
+                {% endfor %}
+                <div class="extra-box">
+                    <div class="bordered"></div>
+                    <div class="bordered"></div>
+                </div>
+                <div class="dessss">
+                    <div class="dis-skill">
+                        <i class="fa-solid fa-globe"></i>
+                        <p>webapp Developer</p>
+                    </div>
+                    <div class="dis-skill">
+                        <i class="fa-solid fa-mobile"></i>
+                        <p>mobile app developer</p>
+                    </div>
+                    <div class="dis-skill">
+                        <i class="fa-solid fa-pen-nib"></i>
+                        <p>graphic designer</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="about-section" id="aboutsection">
+            <h2 class="title_text">About us</h2>
+            <div class="st-container">
+
+                <div class="about-left">
+                    <div class="about-btn">
+                        {% for post in link %}
+                      
+    
+                        <a href="{{post.link}}" target="_blank"><button><i class="{{post.icon}}"></i> <span>{{post.name}}</span></button></a>
+                        
+                        {% endfor %}
+                    </div>
+                    <!-- <img src="images/about-img.jpg" alt="Designed by Freepik"> -->
+                </div>
+                <div class="about-right">
+                    {% for post in about %}
+                    <h2>I'm <span>{{post.name}}</span>, a <span class="sm">{{post.position}}</span></h2>
+                     <p>{{post.description}}</p>
+                    <button>About more</button>
+
+                    {% endfor %}
+                </div>
+                <div class="email-show">
+                    <div class="line"></div>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=codewithsmair@gmail.com" target="_blank"><p>codewithsmair@gmail.com</p></a>
+                    <div class="line"></div>
+                </div>
+            </div>
+
+
+
+
+        </section>
+        <section class="education-section">
+            <!-- form here edcuation content design  -->
+            <h2 class="title_text">my education</h2>
+            <div class="education-container">
+                <!-- <div class="myimagestand"></div> -->
+                 {% for post in education %}
+                <div class="ed-box">
+                    <div class="ed-image">
+                        <img src="images/school.jpg" alt="">
+                    </div>
+                    <div class="ed-content">
+                        <div class="name-ed">{{post.Academy_name}}</div>
+                        <div class="date-ed">{{post.year_of_completion}}</div>
+                        <div class="institution-ed">{{post.degree}}</div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+            
+            
+            <!-- form here skills content design  -->
+        </section>
+        <section class="skills-sections" id="skillsection">
+            <h2 class="title_text">my skills</h2>
+
+            <div class="sk-container">
+                <div class="left-sk">
+                    {% for post in skills|slice:":5" %}
+                    <div class="sk-box">
+                            <div class="skill-box">
+                                <div class="skill-logo">
+                                    <img src="assets/icons8-html-100.png" alt="">
+                                </div>
+                                <div class="sk-name">
+                                    {{ post.name }}
+                                </div>
+                                <div class="dashed-box">
+                                    <div class="dashed"></div>
+                                    <div class="dashed"></div>
+                                    <div class="dashed"></div>
+                                    <div class="dashed"></div>
+                                    <div class="dashed"></div>
+                                    <div class="circarshape"></div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    
+
+               
+                </div>
+                <div class="center-sk">
+                    <!-- <img src="images/skills.png" alt=""> -->
+                </div>
+                <div class="right-sk">
+                    {% for post in skills|slice:"5:10" %}
+                    <div class="sk-box">
+        <div class="skill-box">
+            <div class="skill-logo">
+                <img src="assets/icons8-html-100.png" alt="">
+            </div>
+            <div class="sk-name">
+                {{ post.name }}
+            </div>
+            <div class="dashed-box">
+                <div class="dashed"></div>
+                <div class="dashed"></div>
+                <div class="dashed"></div>
+                <div class="dashed"></div>
+                <div class="dashed"></div>
+                <div class="circarshape"></div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+               
+                 
+
+                </div>
+
+            </div>
+        </section>
+        <section class="experience-section">
+            <h2 class="title_text">Experience</h2>
+
+            <div class="experience-container">
+                {% for post in experience %}
+                <div class="exp-box">
+                    <div class="circle-dot"></div>
+                    <div class="date">{{post.date}}</div>
+                    <h2>{{post.title}}</h2>
+                    <p>{{post.content}}</p>
+                </div>
+                {% endfor %}
+            
+            </div>
+            
+        </section>
+        <section class="myprojects" id="myprojects">
+            <h2 class="title_text">my projects</h2>
+
+            <div class="myprojects-container">
+
+                <div class="mypro-oneline">
+                    {% comment %} {% for post in service |slice:"0:2" %} {% endcomment %}
+                    {% for post in service|slice:":2" %}
+
+                    <div class="mypro-box">
+                        <div class="overlay"></div>
+                        <div class="overlay-2">
+                            <a href="">
+                                <div class="source-code ov2">
+                                    <i class="fa-solid fa-download"></i>
+                                    <p>{{post.source_code}}</p>
+                                </div>
+                            </a>
+                         
+                            <a href="">
+                                <div class="viewproject ov2">
+                                    <i class="fa-solid fa-eye"></i>
+                                    <p>{{post.view_project}}</p>
+                                </div>
+                            </a>
+
+                            <a href="">
+                                <div class="video-link ov2">
+                                    <i class="fa-solid fa-video"></i>
+                                    <p>{{post.video}}</p>
+                                </div>
+                            </a>
+                         
+                          
+                        </div>
+                        <img src="{{post.image.url}}" alt="">
+                        <div class="info">
+                            <h3 class="pro-name">
+                                {{post.name}}
+
+                            </h3>
+                            <div class="view-icon">
+                                <i class="fa-solid fa-arrow-right"></i>
+                                <p>view</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    {% endfor %}
+
+
+
+
+                </div>
+                <div class="mypro-oneline">
+                    {% comment %} {% for post in service |slice:"2:4" %} {% endcomment %}
+                    {% for post in service|slice:"2:4" %}
+
+
+                    <div class="mypro-box">
+                        <div class="overlay"></div>
+                        <div class="overlay-2">
+                            <a href="">
+                                <div class="source-code ov2">
+                                    <i class="fa-solid fa-download"></i>
+                                    <p>{{post.source_code}}</p>
+                                </div>
+                            </a>
+                         
+                            <a href="">
+                                <div class="viewproject ov2">
+                                    <i class="fa-solid fa-eye"></i>
+                                    <p>{{post.view_project}}</p>
+                                </div>
+                            </a>
+
+                            <a href="">
+                                <div class="video-link ov2">
+                                    <i class="fa-solid fa-video"></i>
+                                    <p>{{post.video}}</p>
+                                </div>
+                            </a>
+                         
+                          
+                        </div>
+                        <img src="{{post.image.url}}" alt="">
+                        <div class="info">
+                            <h3 class="pro-name">
+                                {{post.name}}
+
+                            </h3>
+                            <div class="view-icon">
+                                <i class="fa-solid fa-arrow-right"></i>
+                                <p>view</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    {% endfor %}
+
+
+
+
+                </div>
+
+        </section>
+
+        <section class="service-section" id="servicesection">
+            <h2 class="title_text">my service <i class="fa-solid fa-greater-than"></i><i
+                    class="fa-solid fa-greater-than"></i></h2>
+                    
+                    <div class="service-container">
+                        {% for post in service %}
+                        <div class="service-box">
+                            <div class="ser-img-box">
+                                <img src="images/react-native.jpg" alt="React Native Development">
+                            </div>
+                            <div class="ser-left">
+                                <h3>{{post.name}}</h3>
+                                <h3>{{post.name}}</h3>
+                            </div>
+                            <div class="ser-right">
+                                <i class="fa-solid fa-arrow-right"></i>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    
+        </section>
+
+        <section class="contatus-section" id="contactsection">
+            <div class="contacts-container">
+                <div class="contactus-link">
+         
+
+                    <a href="https://github.com/codewithsamir" target="_blank"><button> <i class="fa-brands fa-github"></i> <span>GitHub</span></button></a>
+                    <a href="https://www.instagram.com/teamofsamir" target="_blank"><button><i class="fa-brands fa-instagram"></i> <span>Instagram</span></button></a>
+                    <a href="https://www.facebook.com/profile.php?id=100072162905355&mibextid=ZbWKwL" target="_blank"><button><i class="fa-brands fa-facebook"></i> <span>Facebook</span></button></a>
+                    <a href="https://www.youtube.com/@codewithsamir" target="_blank"><button><i class="fa-brands fa-youtube"></i> <span>YouTube</span></button></a>
+                    <a href="https://www.linkedin.com/in/samir-rain-0467b7259/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><button><i class="fa-brands fa-linkedin"></i> <span>LinkedIn</span></button></a>
+
+                </div>
+                <div class="contact-form-container">
+                    <h2 class="title_text">contact us</h2>
+                    <form action="{% url "contact" %}" method="post">
+                        {% csrf_token %}
+                        <div class="input-box">
+                            <label for="name">Name</label>
+                            <input type="text" name='name' placeholder="enter your name">
+                        </div>
+                        <div class="input-box">
+                            <label for="email">email</label>
+                            <input type="email" name='email' placeholder="enter your email">
+                        </div>
+                        <div class="input-box">
+                            <label for="message">message</label>
+                            <textarea name="message" id="" placeholder="enter your messge"></textarea>
+                        </div>
+                        <div class="input-box">
+                            <button>submit</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="contact-us-image-box">
+                    <!-- <img src="images/contact-us.png" alt=""> -->
+                </div>
+            </div>
+         
+        </section>
+        <footer class="footer-section">
+            <p>&copy; all right reserved by codewithsamir</p>
+        </footer>
+
+
+
+    </main>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script> 
+    <script src="{%static 'js/animationgap.js' %}"></script>
+    <script src="{%static 'js/script.js' %}"></script>
+    <script src="{%static 'js/smoothscroll.js' %}"></script>
+</body>
+
+</html>
