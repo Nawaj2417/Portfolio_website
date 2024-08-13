@@ -1,12 +1,24 @@
 #!/bin/bash
 
-#build the project
-echo "Building the project..."
-python3.9 -m pip install -r requirements.txt
+# Ensure pip is installed
+if ! command -v pip &> /dev/null; then
+    echo "pip could not be found"
+    exit 1
+fi
 
-echo "Make migrations..."
-python3.9 manage.py makemigrations --noinput
-python3.9 manage.py migrate --noinput
+# Create and activate virtual environment
+python -m venv env
+source env/bin/activate
 
-echo "Collect static files..."
-python3.9 manage.py collectstatic --noinput
+# Install Django and project dependencies
+pip install -r requirements.txt
+
+# Make migrations and migrate
+python manage.py makemigrations --noinput
+python manage.py migrate --noinput
+
+# Collect static files
+python manage.py collectstatic --noinput --clear
+
+# Deactivate the virtual environment
+deactivate
